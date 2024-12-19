@@ -1,0 +1,565 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'roboto';
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+:root {
+    --bgcolor: #080808;
+    --second-bg-color: #001005;
+    --text-color: white;
+    --main-color: #00ff51;
+}
+
+body {
+    background-color: var(--bgcolor);
+    color: var(--text-color)
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 1rem 12%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar a {
+    color: white;
+    
+    text-decoration: none;
+}
+
+#menuIcon{
+    display: none;
+    /* Initially hidden for larger screens */
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+    }
+
+    #menuIcon {
+        display: block;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+}
+
+
+#menuIcon {
+    width: 30px;
+    font-size: 3.6rem;
+    color: #00ff51;
+    display: none;
+
+}
+
+.para{
+    text-align: justify;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+
+}
+
+span {
+    color: var(--main-color);
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    border-bottom: 3px solid var(--main-color);
+    color: var(--main-color);
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 12%;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.home-content h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    margin: 1.5rem;
+    line-height: 1;
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.home-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.home-img img {
+    margin-top: 10%;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: 0.4s ease-in-out;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+}
+
+.parent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.child:hover {
+    background-color: rgb(1, 43, 1);
+    background-position: -100px 100px, -100px 100px;
+    transform: rotate3d(0.5, 1, 0, 30deg);
+    transform: perspective(180px) rotateX(60deg) translateY(2px);
+    box-shadow: 0px 10px 10px rgb(9, 255, 0);
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.button:hover {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate3d(0px, 0px, 15px) perspective(180px) rotateX(-35deg) translateY(2px);
+    border-radius: 50%;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--main-color);
+    box-shadow: 0 0 25 var(--main-color);
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    color: black;
+    border: 2px solid transparent;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color);
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+}
+
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: var(--main-color);
+    background-color: var(--main-color);
+    color: black;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    background-color: var(--second-bg-color);
+}
+
+.about-img img {
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: 0.4 ease-in-out;
+}
+
+.about-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+}
+
+.about-content h2 {
+    font-size: 7rem;
+    text-align: left;
+}
+
+.about-content p {
+    font-size: 1.8rem;
+}
+
+.about-content.btn {
+    margin: 3rem 0;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bgcolor);
+    border-radius: 30%;
+}
+
+.heading {
+    text-align: center;
+    font-size: 7rem;
+    margin: 5rem 0;
+}
+
+.services {
+    background-color: var(--bgcolor);
+    color: black;
+}
+
+.services h2 {
+    color: var(--text-color);
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.service-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    height: 600px;
+    border-radius: 3rem;
+    cursor: pointer;
+    border: 5px solid transparent;
+    transition: 0.4s ease-in-out;
+}
+
+.service-box:hover {
+    background-color: var(--second-bg-color);
+    color: var(--main-color);
+    border: 5px solid var(--main-color);
+    transform: scale(1.03);
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+
+.service-info  button{
+margin-top: 20px;
+}
+
+.service-info i {
+    font-size: 8rem;
+}
+
+.service-info h4 {
+    font-size: 4rem;
+    margin: 2rem 0;
+    font-weight: 800;
+}
+
+.service-info p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.contact {
+    background-color: var(--second-bg-color);
+}
+
+.contact h2 {
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.contact form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 5rem 0;
+    text-align: center;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    background-color: var(--bgcolor);
+    border-radius: 2rem;
+    border: 2px solid var(--main-color);
+    margin: 1.5rem 0;
+    resize: none;
+}
+
+.footer {
+    background-color: var(--bgcolor);
+    padding: 50px 0;
+}
+
+.footer .parent {
+    text-align: center;
+}
+
+.list {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.list a {
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.list a:hover {
+    border-bottom: 3px solid var(--main-color);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* RESPONSIVENESS */
+@media(max-width:1024px) {
+    #menuIcon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        border-bottom-left-radius: 2rem;
+        display: none;
+
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .home {
+        flex-direction: column-reverse;
+        margin: 5rem 0;
+        gap: 5rem;
+    }
+
+    .home-content {
+        align-items: center;
+        text-align: center !important;
+    }
+
+    .home-img img {
+        width: 52vw;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+
+    .btn-group {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about h2 {
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .about img {
+        width: 52vw;
+    }
+
+    .contact form {
+        flex-direction: column;
+    }
+}
+
+
+.button-1 {
+    /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
+    /* with hue-rotate color can be changed */
+    --main-color: rgb(46, 213, 115);
+    --main-bg-color: rgba(46, 213, 116, 0.36);
+    --pattern-color: rgba(46, 213, 116, 0.073);
+  
+    /* change this rotation value */
+    filter: hue-rotate(0deg);
+  
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    background: radial-gradient(
+        circle,
+        var(--main-bg-color) 0%,
+        rgba(0, 0, 0, 0) 95%
+      ),
+      linear-gradient(var(--pattern-color) 1px, transparent 1px),
+      linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+    background-size:
+      cover,
+      15px 15px,
+      15px 15px;
+    background-position:
+      center center,
+      center center,
+      center center;
+    border-image: radial-gradient(
+        circle,
+        var(--main-color) 0%,
+        rgba(0, 0, 0, 0) 100%
+      )
+      1;
+    border-width: 1px 0 1px 0;
+    padding: 1rem 3rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: background-size 0.2s ease-in-out;
+  }
+  .clr{
+    background: #10CF22;
+background: linear-gradient(to right, #10CF22 0%, #CFCFCF 75%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+  }
+  .button-1:hover {
+    background-size:cover,
+      10px 10px,
+      10px 10px;
+  }
+  .button-1:active {
+    filter: hue-rotate(250deg);
+  }
+  
