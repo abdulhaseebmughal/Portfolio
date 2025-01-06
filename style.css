@@ -505,6 +505,13 @@ footer ul li {
 }
 
 
+.image-main{
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .button-1 {
     /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
     /* with hue-rotate color can be changed */
@@ -561,3 +568,29 @@ background: linear-gradient(to right, #10CF22 0%, #CFCFCF 75%);
     filter: hue-rotate(250deg);
   }
   
+  @media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 5rem; /* Scale down for smaller screens */
+        margin: 1rem;
+        line-height: 1.2;
+    }
+
+    .home-content h3 {
+        font-size: 3rem;
+        margin: 0.8rem;
+    }
+
+    .home-content p {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+
+    .home-img img {
+        width: 60vw; /* Adjust image size for small screens */
+    }
+
+    .home {
+        flex-direction: column-reverse; /* Align content vertically */
+        gap: 3rem; /* Reduce gap between content and image */
+    }
+}
